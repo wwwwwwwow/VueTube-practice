@@ -28,10 +28,6 @@ export default {
 <style scoped lang="scss">
 $text-height: 2rem;
 
-.card {
-  width: 100%;
-}
-
 .video-thumbnail {
   width: 100%;
   height: 0;

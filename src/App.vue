@@ -2,16 +2,19 @@
   <div id="app">
     <header class="container-fluid panel-wrapper">
       <div class="logo-box flex-box">
-        <div class="hamburger">
+        <div class="hamburger-wrapper" @click="isShow = !isShow">
           <svg
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
-            class="style-scope yt-icon"
+            class="hamburger"
             style="pointer-events: none; display: block; width: 100%; height: 100%;"
           >
             <g class="style-scope yt-icon">
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" class="style-scope yt-icon" />
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                class="style-scope yt-icon"
+              />
             </g>
           </svg>
         </div>
@@ -45,7 +48,10 @@
                   />
                 </g>
                 <g class="style-scope ytd-topbar-logo-renderer">
-                  <g id="youtube-paths" class="style-scope ytd-topbar-logo-renderer">
+                  <g
+                    id="youtube-paths"
+                    class="style-scope ytd-topbar-logo-renderer"
+                  >
                     <!--             O -->
                     <path
                       fill="#FFF"
@@ -122,7 +128,7 @@
       </div>
     </header>
     <div class="container-fluid wrap">
-      <Nav li="ABC" />
+      <Nav :isShow="isShow" />
       <main class="content-wrapper">
         <router-view />
       </main>
@@ -135,6 +141,9 @@ import Nav from "./components/Nav.vue";
 
 export default {
   name: "App",
+  data: () => ({
+    isShow: false
+  }),
   components: {
     Nav
   }
@@ -152,12 +161,41 @@ export default {
   -webkit-align-items: center;
   align-items: center;
 }
-
 .hamburger {
   fill: #{$icon-inactive};
+  width: 100%;
+  height: 100%;
+}
+
+.hamburger-wrapper {
+  cursor: pointer;
   width: 24px;
   height: 24px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 50%;
+    transition: all 0.2s;
+    background-color: #{$badge-chip-background};
+    opacity: 0;
+    z-index: 30000;
+  }
+  &:active {
+    &::after {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+    .hamburger {
+      fill: #{$icon-active};
+    }
+  }
 }
+
 .logo {
   width: 80px;
   margin-left: 24px;

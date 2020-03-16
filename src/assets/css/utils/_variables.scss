@@ -5,5 +5,23 @@ $icon-inactive: #909090;
 $call-to-action: #3ea6ff;
 $icon-active: #fff;
 $general-background-a: #181818;
-$panel-background: rgba(28, 28, 28, 0.8);
+$panel-background: rgba(28, 28, 28, 0.985);
+$hover-overlay: rgba(28, 28, 28, 0.85);
 $badge-chip-background: rgba(255, 255, 255, 0.1);
+
+$nav-width: 240px;
+
+@media (max-width: 1199.98px) {
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+}

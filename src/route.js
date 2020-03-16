@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import App from "./App.vue";
 import List from "./components/List.vue";
 import Subscription from "./components/Subscription.vue";
+import Watch from "./components/Watch.vue";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,13 @@ export default new VueRouter({
       path: "/subscriptions",
       name: "subscription",
       component: Subscription,
+      meta: {},
+      children: []
+    },
+    {
+      path: "/watch/:id",
+      name: "watch",
+      component: Watch,
       meta: {},
       children: []
     }
