@@ -36,13 +36,13 @@
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
-              <clipPath id="clip-path">
+              <clipPath :id="`clip-path-`+item.id">
                 <path
                   class="ring"
                   d="M 50 36 A 14 14 0 1 0 50 64 A 14 14 0 1 0 50 36 Z M 50 43 A 7 7 0 1 1 50 57 A 7 7 0 1 1 50 43 Z"
                 />
               </clipPath>
-              <g class="lines" clip-path="url(#clip-path)">
+              <g class="lines" :clip-path="`url(#clip-path-`+item.id+`)`">
                 <line x1="50" y1="0" x2="50" y2="35" />
                 <line x1="93.301" y1="25" x2="62.99" y2="42.5" />
                 <line x1="93.301" y1="75" x2="62.99" y2="57.5" />
